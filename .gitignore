@@ -1,46 +1,36 @@
-```gitignore
+```
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-*.pot
-*.pyc
-*.pyo
-*.pyd
-*.so
-*.egg-info/
-.egg-info/
-.eggs/
-.eggs
-dist/
-build/
-*.mo
-*.pot
-.DS_Store
-Thumbs.db
 
-# Django
-*.log
-local_settings.py
+# Database
 db.sqlite3
-db.sqlite3-journal
 
 # Logs
 *.log
 server.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Dependencies
+venv/
+.venv/
+env/
+.ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
 ```

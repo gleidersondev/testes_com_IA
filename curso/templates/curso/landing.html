@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão Python & Django - Domine o Back-end em 5 Dias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a4f7a 0%, #0d2b4a 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #4fc3f7;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a4f7a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            color: #1a4f7a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* What You'll Learn */
+        .what-you-learn {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .what-you-learn h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a4f7a;
+        }
+
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .module {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #1a4f7a;
+        }
+
+        .module h3 {
+            color: #1a4f7a;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .module ul {
+            list-style: none;
+            color: #555;
+        }
+
+        .module ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .module ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Instructor Section */
+        .instructor {
+            padding: 80px 0;
+            background: #1a4f7a;
+            color: white;
+        }
+
+        .instructor h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .instructor-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .instructor-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #4fc3f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .instructor-info {
+            max-width: 600px;
+        }
+
+        .instructor-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #4fc3f7;
+        }
+
+        .instructor-info p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a4f7a;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .price-card {
+            background: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            border: 3px solid #ff6b35;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #1a4f7a;
+            margin-bottom: 10px;
+        }
+
+        .current-price span {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        .installments {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .guarantee {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .guarantee p {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d2b4a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .benefits h2,
+            .what-you-learn h2,
+            .instructor h2,
+            .pricing h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 Imersão Python & Django</h1>
+            <p class="subtitle">Domine o Back-end em 5 Dias e Construa APIs Profissionais</p>
+            <p class="description">
+                Aprenda Python e Django do zero ao avançado criando projetos reais. 
+                Ideal para desenvolvedores que querem se tornar especialistas em back-end 
+                e conquistar vagas que pagam até R$ 15.000/mês.
+            </p>
+            <a href="#pricing" class="cta-button">QUERO GARANTIR MINHA VAGA!</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Por Que Este Curso?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">💼</div>
+                    <h3>Mercado em Alta</h3>
+                    <p>Python é uma das linguagens mais demandadas no mercado. Empresas como Google, Netflix e Instagram usam Python em seus sistemas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🎯</div>
+                    <h3>Projetos Reais</h3>
+                    <p>Você vai construir 5 projetos completos para seu portfólio, incluindo uma API RESTful, sistema de autenticação e muito mais.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>Mentoria Exclusiva</h3>
+                    <p>Acesso a comunidade VIP com outros alunos e mentoria semanal com profissionais do mercado.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">📜</div>
+                    <h3>Certificado Reconhecido</h3>
+                    <p>Certificado válido em todo território nacional para comprovar suas habilidades em Python e Django.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">⚡</div>
+                    <h3>Acesso Vitalício</h3>
+                    <p>Compre uma vez e tenha acesso para sempre, incluindo todas as atualizações futuras do curso.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">💰</div>
+                    <h3>Garantia de 7 Dias</h3>
+                    <p>Se não gostar do conteúdo, devolvemos 100% do seu investimento sem perguntas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="what-you-learn">
+        <div class="container">
+            <h2>O Que Você Vai Aprender</h2>
+            <div class="modules">
+                <div class="module">
+                    <h3>📌 Módulo 1: Fundamentos Python</h3>
+                    <ul>
+                        <li>Sintaxe e estrutura</li>
+                        <li>Estruturas de dados</li>
+                        <li>Funções e módulos</li>
+                        <li>Programação orientada a objetos</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <h3>📌 Módulo 2: Django Essentials</h3>
+                    <ul>
+                        <li>Arquitetura MVT</li>
+                        <li>Models e migrations</li>
+                        <li>Views e templates</li>
+                        <li>Admin do Django</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <h3>📌 Módulo 3: Django REST Framework</h3>
+                    <ul>
+                        <li>Criando APIs RESTful</li>
+                        <li>Serializers</li>
+                        <li>Autenticação JWT</li>
+                        <li>Documentação com Swagger</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <h3>📌 Módulo 4: Banco de Dados</h3>
+                    <ul>
+                        <li>PostgreSQL avançado</li>
+                        <li>QuerySets otimizados</li>
+                        <li>Transações e locks</li>
+                        <li>Redis e caching</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <h3>📌 Módulo 5: Deploy e DevOps</h3>
+                    <ul>
+                        <li>Docker e Docker Compose</li>
+                        <li>CI/CD com GitHub Actions</li>
+                        <li>Deploy na AWS</li>
+                        <li>Monitoramento e logs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor">
+        <div class="container">
+            <h2>Seu Instrutor</h2>
+            <div class="instructor-content">
+                <div class="instructor-photo">👨‍💻</div>
+                <div class="instructor-info">
+                    <h3>Carlos Silva</h3>
+                    <p><strong>Senior Backend Developer</strong> com mais de 10 anos de experiência em Python e Django.</p>
+                    <p>Já trabalhou em empresas como Nubank, iFood e Stone, desenvolvendo sistemas que processam milhões de requisições por dia.</p>
+                    <p>Mentor de mais de 5.000 alunos e criador de cursos que já formaram milhares de desenvolvedores em todo o Brasil.</p>
+                    <p><strong>Missão:</strong> Democratizar o ensino de tecnologia de qualidade e ajudar você a conquistar sua vaga no mercado de tech.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Invista na Sua Carreira</h2>
+            <p class="pricing-subtitle">Oferta especial por tempo limitado!</p>
+            <div class="price-card">
+                <p class="old-price">De R$ 997,00</p>
+                <p class="current-price"><span>R$</span> 297<span>,00</span></p>
+                <p class="installments">ou 12x de R$ 29,70</p>
+                <a href="#" class="cta-button">SIM! QUERO ME INSCREVER AGORA</a>
+                <div class="guarantee">
+                    <p>🛡️ Garantia incondicional de 7 dias</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Se não estiver satisfeito, devolvemos seu dinheiro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Imersão Python & Django. Todos os direitos reservados.</p>
+            <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Meta.</p>
+            <p style="font-size: 0.9rem; margin-top: 20px;">
+                <a href="#" style="color: #4fc3f7; text-decoration: none;">Termos de Uso</a> | 
+                <a href="#" style="color: #4fc3f7; text-decoration: none;">Política de Privacidade</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
